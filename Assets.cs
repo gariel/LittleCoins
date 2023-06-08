@@ -9,7 +9,7 @@ namespace LittleCoins
     public static class Assets
     {
         private static ImageAssets imageInstance;
-        public static ImageAssets Image => imageInstance ?? (imageInstance = new ImageAssets());
+        public static ImageAssets Image => imageInstance ??= new ImageAssets();
     }
 
     public interface IAsset<T>
@@ -25,8 +25,7 @@ namespace LittleCoins
 
         private readonly Type cacheKey = typeof(T);
 
-        private static Dictionary<Type, Dictionary<string, T>> cache
-            = new Dictionary<Type, Dictionary<string, T>>();
+        private static readonly Dictionary<Type, Dictionary<string, T>> cache = new();
 
         protected BaseAssets()
         {

@@ -36,13 +36,7 @@ namespace LittleCoins
 
         public static LittleGame Current { get; private set; }
 
-#if DEBUG
-        public static bool Debug => true;
-#else
-        public static bool Debug => false;
-#endif
-
-        public string RootPath => Debug ? "../../Assets" : "Assets";
+        public string RootPath => "Assets";
         public LittleMonoGame MonoGame { get; }
         public GraphicsDevice GraphicsDevice => MonoGame.GraphicsDevice;
 
